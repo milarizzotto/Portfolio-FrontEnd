@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+       <title>Portfolio MCR</title>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       <link href="styles.css" rel="stylesheet">
+       <meta name="description" content="Roughly 155 characters">
+        <div id="Logo">
+            <img class="AP" src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/favicon/1652360229/favicon.ico">Argentina Programa
+        #YoProgramo</img>
+        </div>
+         <div id="BotonesHeader">
+            <a class="Twitter" href="https://twitter.com/CamiRizzotto">
+               <img class="IcTw" src="https://freepngdesign.com/content/uploads/images/twitter-icon-8998.png">
+           </a>
+           <a class="Ig" href="https://www.instagram.com/camirizzotto/">
+               <img class="IcIg" src="https://freepngimg.com/download/computer/68394-computer-instagram-icons-png-file-hd.png">
+           </a>
+           <button class="btn-danger">Log In</button>
+       </div>
+       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> !--> 
+       <!-- <script src="script.js"></script> ! -->
+    </head>
+<body>
+    <div class="card mat-card" id="first-card">
+        <div id="profile-background"> 
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0UX9AAAAA1BMVEW//wD6XHmFAAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABODcYhAAEl463hAAAAAElFTkSuQmCC"></img>
+        </div>
+        <div id="info" style="padding: 16px">
+            <div id="info-img">
+            <img class="profile-image" src="https://lh3.googleusercontent.com/a-/AOh14GjNFjM2AJ4FuRBzxuQcoEnkiDX6FwefOhjS9tgcbA=s288-p-rw-no">
+            <button type="button" class="fa fa-pen">✏︎</button>
+            </div>
+            <div id="info-data">
+            <h1>María Camila Rizzotto</h1>
+            <div>
+                <p id="info-details">Estudiante de programación web full stack jr.</p>
+            </div> 
+            <button class="btn-edit" onclick="cambiar_parrafo()">✏︎
+            </button>
+            <input id="file1" type="file" onchange="showfile(this)"> 
+            <div>
+                <input id="edit-details" type="text" oninput="myfunction2(this.value)" style="display:none">
+            </div>
+
+            <ul id="info-company">
+                 <li> También estudio en:<br>
+                    <a href="https://unr.edu.ar/">
+                    <img src="https://www.fceia.unr.edu.ar/~rpic2009/UNR_logo.jpg">Universidad Nacional de Rosario
+                </a></li>
+                <li>Siguiendo Ingeniería Civil:<br><a href="https://web.fceia.unr.edu.ar/es/ingenier%C3%ADa-civil.html">
+                    <img src="https://yt3.ggpht.com/ytc/AKedOLSgaE24-4uAG52wHAjTdlj-EyGGBxXU_GrTYApZ=s900-c-k-c0x00ffffff-no-rj">
+                    Facultad de Ciencias Exactas, Ingeniería y Agrimensura
+                </a></li>
+            </ul>
+
+            <div id="info-contact">
+                <p>📌Rosario, Santa Fe (Argentina)<br><a href="#">Información de contacto</a>
+                </p>
+            </div>
+            </div>
+            <div id="info-actions">
+            <button class="btn btn-primary" type="button">
+                Tengo interés en
+            </button>
+            <button class="btn btn-light" type="button">Añadir sección </button>
+            <button class="btn btn-light" type="button"> Más </button>
+            </div> 
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-3">prueba2</div>
+          <div class="col-3">prueba3</div>
+          <div class="col-3">ESTOY ARRIBA</div>
+         <!--la suma de los nros d col tiene q ser 12, luego va a otra fila-->
+        </div>
+        <div class="row">
+          <div class="col-3">soy un tipo xd</div>
+          <div class="col-3">prueba 2.1</div>
+          <div class="col-3">prueba 3.1</div>
+          <div class="col-3">ESTOY ABAJO DE ARRIBA</div>
+        </div>
+    </div>
+
+    <form>
+
+    <div class="mb-3">
+
+      <label for="idE" class="form-label">Correo</label>
+
+      <input type="email" class="form-control" id="idE" aria-describedby ="idEH">
+
+      <div id="idEH" class="form-text">Debe ser un correo válido.</div>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+
+      <input type="password" class="form-control" id="exampleInputPassword1">
+
+    </div>
+
+    <div class="mb-3 form-check">
+
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+
+      <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+    </form>
+
+    <nav class="navbar">
+    <a class="navbar-brand" href="#">RS</a>
+    <ul>
+        <li>
+            <a href="#">blog</a>
+        </li>
+        <li><a href="active">meh</a></li>
+    </ul>
+    </nav>
+
+    <script>
+    function cambiar_parrafo(){
+        document.getElementById("edit-details").style.display="block";
+        let texto = document.getElementById("info-details").innerText;
+        console.log(texto);
+        }
+    function myfunction2(valor){
+        document.getElementById("info-details").innerText=valor;
+    }
+    function logMessage(message){
+        console.log(message +"<br>");
+    }
+    //controla si se presiono un enter
+    let textarea = document.getElementById("edit-details")
+    textarea.addEventListener('keyup',(e)=>{
+        logMessage(`Key "${e.key}" released [event: keyup]`);
+     if (e.key=="Enter"){
+         document.getElementById("edit-details").style.display="none"
+     }
+    });
+    //carga el contenido de un archivo de texto y lo muestra en el párrafo
+    function showfile(input){
+        let file= input.files[0];
+        //alert(`File name: ${file.name}`); ESTOS ALERTAS SACAN UN MENSAJITO EN LA PÁGINA. prescindible
+        //alert (`Last modified: ${file.lastModified}`);
+
+        let reader= new FileReader();
+        reader.readAsText(file);
+        reader.onload = function(){
+            console.log(reader.result);
+            document.getElementById("info-details").innerText=reader.result;
+        };
+        reader.onerror = function(){
+            consolt.log(reader.error);
+        };
+    }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+</body>
+</html>
