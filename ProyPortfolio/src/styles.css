@@ -1,0 +1,89 @@
+body {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: #a0327f }
+
+div.botones {
+  float: right;
+}
+
+div#Logo{
+  color: white;
+  font-weight: bold;
+  }
+  div#Logo img{
+    width: 40px;
+  }
+
+div#BotonesHeader{
+  padding-left: 1090px;
+  margin-top: -40px;
+  }
+div#BotonesHeader img{
+    width: 40px;
+  }
+  div.container div.row{
+    font-size: 20px; 
+    padding-left: 0px;
+  }
+  
+ul.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+
+h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
+
+ul.navbar li {
+            background: white;
+            margin: 0.5em 0;
+            padding: 0.3em;
+            border-right: 1em solid black }
+
+ul.navbar a {
+            text-decoration: none }
+
+a:link {
+    color: blue }
+
+a:visited {
+    color: purple }
+address {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: thin dotted }
+div.card.mat-card {
+  border-radius: 32px;
+  margin: 10px 10px;
+  padding: 20px;
+  border-color:aqua
+}
+div#profile-background{
+  display: flex;
+  
+}
+div#profile-background img{
+  height: 300px;
+  width: 1500px;
+  
+  border-radius: 32px 32px 32px 32px;
+}
+div#info-img img{
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin-top: -150px;
+  z-index: 1;
+  margin-left: 40%;
+}
