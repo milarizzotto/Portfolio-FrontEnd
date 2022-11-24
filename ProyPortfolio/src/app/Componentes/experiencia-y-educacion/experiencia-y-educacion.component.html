@@ -1,9 +1,7 @@
-<div class="botones">
-    <button class="btn btn-primary" type="button">✏︎</button>
-    <button class="btn btn-danger" type="button">x</button>
-</div>
+
 <div class="container" id="main-container">
         <h5>Educación:</h5>
+        <a class="nav-link" (click)="onOpenModal(null,'add')">Agregar<span class="sr-only"></span></a>
         <div *ngFor="let expEd of expEds">
          <div class="container">
             <div class="row">
@@ -13,27 +11,66 @@
                 <div class="col-3">{{expEd.institucion}}<a href={{expEd.link}}><img width= 250px src={{expEd.img_url}}></a></div>
                 <!-- la suma de los nros d col tiene q ser 12, luego va a otra fila -->
             </div>
+            <div class="float-right btn-group btn-group-sm">
+               <a (click)="onOpenModal(expEd,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+               <a (click)="onOpenModal(expEd,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+            </div>    
          </div>
-<!--        
-<nav class="navbar">
-<a class="navbar-brand" href="#">RS</a>
-<ul>
-  <li>
-      <a href="#">blog</a>
-  </li>
-  <li><a href="active">meh</a></li>
-</ul>
-</nav> -->
         </div>
 </div>
 
+
+<!-- Add Modal -->
+<div class="modal fade" id="addExpEdModal" tabindex="-1" role="dialog" aria-labelledby="addExp_EdModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addExp_EdModalLabel">Agregar educación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddExpEd(addForm)">
+               <div class="form-group">
+                  <label for="institucion">Institucion</label>
+                  <input type="text" ngModel="{{addexpEd.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
+               </div>
+               <input type="hidden" ngModel="{{addexpEd.id}}" name="id" class="form-control" id="id" placeholder="institucion">
+               <div class="form-group">
+                  <label for="descrip">Breve descripción de la experiencia</label>
+                  <input type="text" ngModel="{{addexpEd.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Nivel</label>
+                  <input type="text" ngModel="{{addexpEd.rol}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Link web</label>
+                  <input type="text" ngModel="{{addexpEd.link}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Imagen URL</label>
+                  <input type="text" ngModel="{{addexpEd.img_url}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+               </div>
+               <div class="modal-footer">
+                  <button type="button" id="add-exped-form" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                  <button [disabled]="addForm.invalid" (click)="onAddExpEd(addForm.value)" type="submit" data-dismiss="modal" class="btn btn-primary">Guardar cambios</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+ </div>
+
+
 <!-- Edit Modal -->
-<!--
-<div class="modal fade" id="actualizarExp_EdModal" tabindex="-1" role="dialog" aria-labelledby="Exp_EdEditModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="actualizarExp_EdModal" tabindex="-1" role="dialog" aria-labelledby="actualizarExp_EdModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
        <div class="modal-content">
           <div class="modal-header">
-             <h5 class="modal-title" id="actualizarExp_EdModalLabel">Editar Educación {{editexpEd?.rol}}</h5>
+             <h5 class="modal-title" id="actualizarExp_EdModalLabel">Editar Educación</h5>
              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
@@ -41,56 +78,54 @@
           <div class="modal-body">
              <form #editForm="ngForm">
                 <div class="form-group">
-                   <label for="institucion">institucion</label>
-                   <input type="text" ngModel="{{editexpEd?.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
+                   <label for="institucion">Institucion</label>
+                   <input type="text" ngModel="{{editexpEd.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
                 </div>
-                <input type="hidden" ngModel="{{editexpEd?.id}}" name="id" class="form-control" id="id" placeholder="institucion">
+                <input type="hidden" ngModel="{{editexpEd.id}}" name="id" class="form-control" id="id" placeholder="institucion">
                 <div class="form-group">
                    <label for="descrip">Breve descripción de la experiencia</label>
-                   <input type="text" ngModel="{{editexpEd?.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
+                   <input type="text" ngModel="{{editexpEd.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
                 </div>
                 <div class="form-group">
-                   <label for="phone">Job title</label>
-                   <input type="text" ngModel="{{editexpEd?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+                   <label for="phone">Nivel</label>
+                   <input type="text" ngModel="{{editexpEd.rol}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
                 </div>
                 <div class="form-group">
-                   <label for="phone">Phone</label>
-                   <input type="text" ngModel="{{editexpEd?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+                   <label for="phone">Link web</label>
+                   <input type="text" ngModel="{{editexpEd.link}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
                 </div>
                 <div class="form-group">
                    <label for="phone">Image URL</label>
-                   <input type="text" ngModel="{{editexpEd?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                   <input type="text" ngModel="{{editexpEd.img_url}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
                 </div>
                 <div class="modal-footer">
-                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                   <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <button type="button" id="edit-exped-form" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                   <button [disabled]="editForm.invalid" (click)="onEditExpEd(editForm.value)" type="submit" data-dismiss="modal" class="btn btn-primary">Guardar cambios</button>
                 </div>
              </form>
           </div>
        </div>
     </div>
   </div>
--->
-  <!-- Delete Modal -->
-  <!--
-  <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+
+<!-- Delete Modal -->
+
+  <div class="modal fade" id="deleteExp_EdModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
        <div class="modal-content">
           <div class="modal-header">
-             <h5 class="modal-title" id="deleteModelLabel">Delete Employee</h5>
+             <h5 class="modal-title" id="deleteModelLabel">Borrar experiencia</h5>
              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
           </div>
           <div class="modal-body">
-             <p>Are you sure you want to delete employee {{deleteEmployee?.name}}?</p>
+             <p>Estás seguro de querer borrar?</p>
              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button (click)="onDeleteEmloyee(deleteEmployee?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                <button (click)="onDeleteExpEd(deleteExpEd.id)" class="btn btn-danger" data-dismiss="modal">Si</button>
              </div>
           </div>
        </div>
     </div>
   </div>
-  </div> 
--->
