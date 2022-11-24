@@ -11,7 +11,7 @@ import { LogrosComponent } from './Componentes/logros/logros.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IniciarSesionComponent } from './Componentes/iniciar-sesion/iniciar-sesion.component';
 import { PortfolioComponent } from './Componentes/portfolio/portfolio.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
