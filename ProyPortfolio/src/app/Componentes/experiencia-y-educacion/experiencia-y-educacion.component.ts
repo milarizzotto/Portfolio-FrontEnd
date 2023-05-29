@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Exp_EducService } from 'src/app/Servicios/experiencia-y-educacion.Service';
 import { Exp_Educ } from './Exp_Educ';
+import { IniciarSesionComponent } from '../iniciar-sesion/iniciar-sesion.component';
 
 @Component({
   selector: 'app-experiencia-y-educacion',
@@ -15,8 +16,12 @@ export class ExperienciaYEducacionComponent implements OnInit {
   public editexpEd: Exp_Educ;
   public deleteExpEd: Exp_Educ;
   public addexpEd: Exp_Educ;
+  
+  
 
-  constructor(private expEdService: Exp_EducService){}
+  constructor(private expEdService: Exp_EducService){
+    console.log(this.expEds);
+  }
 
   ngOnInit() {
     this.verexpEds();

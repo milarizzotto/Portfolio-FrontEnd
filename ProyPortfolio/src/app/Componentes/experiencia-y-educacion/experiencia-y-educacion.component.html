@@ -1,23 +1,21 @@
 
 <div class="container" id="main-container">
         <h5>Educación:</h5>
-        <a class="nav-link" (click)="onOpenModal(null,'add')">Agregar<span class="sr-only"></span></a>
-        <div *ngFor="let expEd of expEds">
-         
-            <div class="row">
-                <div class="col-3"><h5>{{ expEd.rol }}</h5></div>
-                <div class="col-3"><p>{{ expEd.descrip }}</p></div>
-                <div class="col-3">{{ expEd.fecha_inic }} - {{expEd.fecha_fin}} </div>
-                <div class="col-3">{{expEd.institucion}}<a href={{expEd.link}}><img width= 250px src={{expEd.img_url}}></a></div>
-                <!-- la suma de los nros d col tiene q ser 12, luego va a otra fila -->
-            </div>
-            <div class="float-right btn-group btn-group-sm">
-               <a (click)="onOpenModal(expEd,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit">Editar<i class="fa fa-pencil"></i></a>
-               <a (click)="onOpenModal(expEd,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete">X<i class="fa fa-times"></i></a>
-            </div> 
-         
-        </div>
-        
+         <a class="nav-link" (click)="onOpenModal(null,'add')">Agregar<span class="sr-only"></span></a>
+        <div *ngFor='let expEd of expEds'>
+   <div class="row">
+       <div class="col-3"><h5>{{ expEd?.rol }}</h5></div>
+       <div class="col-3"><p>{{ expEd?.descrip }}</p></div>
+       <div class="col-3">{{ expEd?.fecha_inic }} - {{expEd?.fecha_fin}} </div>
+       <div class="col-3">{{expEd?.institucion}}<a href={{expEd?.link}}><img width= 250px src={{expEd?.img_url}}></a></div>
+       <div class="float-right btn-group btn-group-sm">
+         <a (click)="onOpenModal(expEd,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit">Editar<i class="fa fa-pencil"></i></a>
+         <a (click)="onOpenModal(expEd,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete">X<i class="fa fa-times"></i></a>
+      </div> 
+   </div>
+</div>
+</div>
+
 
 
 <!-- Add Modal -->
@@ -34,24 +32,24 @@
             <form #addForm="ngForm" (ngSubmit)="onAddExpEd(addForm)">
                <div class="form-group">
                   <label for="institucion">Institucion</label>
-                  <input type="text" ngModel="{{addexpEd.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
+                  <input type="text" ngModel="{{addexpEd?.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
                </div>
-               <input type="hidden" ngModel="{{addexpEd.id}}" name="id" class="form-control" id="id" placeholder="institucion">
+               <input type="hidden" ngModel="{{addexpEd?.id}}" name="id" class="form-control" id="id" placeholder="institucion">
                <div class="form-group">
                   <label for="descrip">Breve descripción de la experiencia</label>
-                  <input type="text" ngModel="{{addexpEd.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
+                  <input type="text" ngModel="{{addexpEd?.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
                </div>
                <div class="form-group">
                   <label for="phone">Nivel</label>
-                  <input type="text" ngModel="{{addexpEd.rol}}" name="nivel" class="form-control" id="nivel" placeholder="nivel">
+                  <input type="text" ngModel="{{addexpEd?.rol}}" name="nivel" class="form-control" id="nivel" placeholder="nivel">
                </div>
                <div class="form-group">
                   <label for="phone">Link web</label>
-                  <input type="text" ngModel="{{addexpEd.link}}" name="link" class="form-control" id="link" name="link" placeholder="link">
+                  <input type="text" ngModel="{{addexpEd?.link}}" name="link" class="form-control" id="link" name="link" placeholder="link">
                </div>
                <div class="form-group">
                   <label for="phone">Imagen URL</label>
-                  <input type="text" ngModel="{{addexpEd.img_url}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                  <input type="text" ngModel="{{addexpEd?.img_url}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
                </div>
                <div class="modal-footer">
                   <button type="button" id="add-exped-form" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
@@ -79,24 +77,24 @@
              <form #editForm="ngForm">
                 <div class="form-group">
                    <label for="institucion">Institucion</label>
-                   <input type="text" ngModel="{{editexpEd.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
+                   <input type="text" ngModel="{{editexpEd?.institucion}}" name="institucion" class="form-control" id="institucion" aria-describedby="emailHelp" placeholder="Institucion">
                 </div>
-                <input type="hidden" ngModel="{{editexpEd.id}}" name="id" class="form-control" id="id" placeholder="institucion">
+                <input type="hidden" ngModel="{{editexpEd?.id}}" name="id" class="form-control" id="id" placeholder="institucion">
                 <div class="form-group">
                    <label for="descrip">Breve descripción de la experiencia</label>
-                   <input type="text" ngModel="{{editexpEd.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
+                   <input type="text" ngModel="{{editexpEd?.descrip}}" name="descrip" class="form-control" id="descrip" placeholder="descrip">
                 </div>
                 <div class="form-group">
                    <label for="phone">Nivel</label>
-                   <input type="text" ngModel="{{editexpEd.rol}}" name="nivel" class="form-control" id="nivel" placeholder="nivel">
+                   <input type="text" ngModel="{{editexpEd?.rol}}" name="nivel" class="form-control" id="nivel" placeholder="nivel">
                 </div>
                 <div class="form-group">
                    <label for="phone">Link web</label>
-                   <input type="text" ngModel="{{editexpEd.link}}" name="link" class="form-control" id="link" name="link" placeholder="link">
+                   <input type="text" ngModel="{{editexpEd?.link}}" name="link" class="form-control" id="link" name="link" placeholder="link">
                 </div>
                 <div class="form-group">
                    <label for="phone">Image URL</label>
-                   <input type="text" ngModel="{{editexpEd.img_url}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                   <input type="text" ngModel="{{editexpEd?.img_url}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
                 </div>
                 <div class="modal-footer">
                    <button type="button" id="edit-exped-form" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
@@ -110,7 +108,7 @@
 
 <!-- Delete Modal -->
 
-  <div class="modal fade" id="deleteExp_EdModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+<div class="modal fade" id="deleteExp_EdModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
        <div class="modal-content">
           <div class="modal-header">
@@ -128,6 +126,4 @@
           </div>
        </div>
     </div>
-  </div>
-
 </div>

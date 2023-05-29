@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators';
 })
 
 export class AutenticacionService {
-    url="https://portfoliomcr.herokuapp.com/api/login";
+    url="https://portfoliomcrbackend.up.railway.app/api/login";
     currentUserSubject: BehaviorSubject<any>;
     constructor(private http: HttpClient) { 
         console.log("El servicio de autenticación está corriendo");

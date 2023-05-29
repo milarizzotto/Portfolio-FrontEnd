@@ -10,6 +10,7 @@ import { AutenticacionService } from 'src/app/Servicios/autenticacion.service';
 })
 export class IniciarSesionComponent implements OnInit {
   form: FormGroup;
+  public estalogeado: boolean;
   constructor(private formBuilder: FormBuilder, private autenticacionService: AutenticacionService, private ruta:Router) { 
     this.form=this.formBuilder.group({
       email:['', [Validators.required, Validators.email]],
@@ -33,6 +34,7 @@ export class IniciarSesionComponent implements OnInit {
     this.autenticacionService.IniciarSesion(this.form.value).subscribe(data=>{
       console.log("DATA:"+ JSON.stringify(data));
       this.ruta.navigate(['/portfolio']);
+      this.estalogeado = true;
     })
   }
 }
